@@ -5,7 +5,7 @@ import utils.MyLogger;
 //동시성 문제...
 public class BankMain {
     public static void main(String[] args) throws InterruptedException {
-        BankAccount bankAccount = new BankAccountV1(10000);
+        BankAccount bankAccount = new BankAccountV2(10000);
         Thread thread01 = new Thread(new WithdrawTask(bankAccount,8000),"thread01"); //삼성생명
         Thread thread02 = new Thread(new WithdrawTask(bankAccount,8000),"thread02"); //동양생명
         thread01.start();
