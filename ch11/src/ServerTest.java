@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class ServerTest {
     public static void main(String[] args) {
@@ -9,6 +10,7 @@ public class ServerTest {
         Socket socket = null;
         BufferedWriter bufferedWriter = null;
         BufferedReader bufferedReader = null;
+        Scanner scanner = new Scanner(System.in);
         try {
             listener = new ServerSocket(9999); //개구멍이다. port가 맞아야지 들어올 수 있다.
             System.out.println("외부에서 들어오는 socket 연결대기중");
@@ -20,6 +22,10 @@ public class ServerTest {
                 String inputMsg = bufferedReader.readLine();
                 if(inputMsg.equals("end")) break;
                 System.out.println("클라이언트에서 보낸 메세지  >> "+inputMsg);
+                System.out.print("보내기 >> ");
+                String outputMsg = scanner.nextLine();
+                bufferedWriter.write(outputMsg+"\r\n");
+                bufferedWriter.flush();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
