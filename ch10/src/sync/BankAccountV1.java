@@ -4,11 +4,9 @@ import utils.MyLogger;
 
 public class BankAccountV1 implements BankAccount {
     private int balance;
-
     public BankAccountV1(int balance) {
         this.balance = balance;
     }
-
     @Override
     public boolean withdraw(int amount) {
         MyLogger.log("거래 시작 : "+ this.getClass().getSimpleName()  );
@@ -28,7 +26,6 @@ public class BankAccountV1 implements BankAccount {
         MyLogger.log("거래 종료");
         return true;
     }
-
     @Override
     public int getBalance() {
         return balance;
