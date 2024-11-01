@@ -53,7 +53,7 @@ public class ChatServer {
         }
 
         private void broadcast(String message) {
-            synchronized (clientWriters) {
+
                 for (BufferedWriter writer : clientWriters) {
                     try {
                         writer.write(message);
@@ -63,7 +63,7 @@ public class ChatServer {
                         e.printStackTrace();
                     }
                 }
-            }
+
         }
 
         private void addClientWriter(BufferedWriter writer) {
