@@ -13,6 +13,10 @@ public class ChatServer {
             System.out.println("chatting server start >>> ");
             ServerSocket serverSocket = new ServerSocket(PORT);
             //접속해 오는 여러 clinet를 계속 받아주는 thread
+            while(true) {
+                Thread thread = new Thread(new ChatClientHandler(serverSocket.accept()));
+                thread.start();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
