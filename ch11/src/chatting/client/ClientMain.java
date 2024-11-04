@@ -8,4 +8,5 @@ public class ClientMain {
         Client client = new Client("127,0.0.1",PORT);
         client.start();
     }
+    //서버쪽 코드는 밥먹고와서...
 }
