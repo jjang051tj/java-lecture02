@@ -38,5 +38,11 @@ public class SessionManager {
         });
         sessions.clear();
     }
-
+    public synchronized List<String> getAllUserName() {
+        List<String> userNames =  new ArrayList<>();
+        sessions.forEach(session -> {
+            userNames.add(session.getUserName());
+        });
+        return userNames;
+    }
 }
