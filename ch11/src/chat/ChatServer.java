@@ -3,7 +3,7 @@ package chat;
 import java.io.*;
 import java.net.*;
 import java.util.*;
-
+//장성호
 public class ChatServer {
     private static final int PORT = 12345;
     private static Set<BufferedWriter> clientWriters = new HashSet<>();
