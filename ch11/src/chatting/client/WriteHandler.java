@@ -14,7 +14,7 @@ public class WriteHandler implements Runnable {
     private final DataOutputStream output;  //spring
     public boolean closed = false;
 
-    public WriteHandler(Client client, DataOutputStream output) {
+    public WriteHandler(DataOutputStream output,Client client) {
         this.client = client;
         this.output = output;
     }

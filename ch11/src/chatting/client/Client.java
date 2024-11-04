@@ -18,6 +18,7 @@ public class Client {
     private DataOutputStream output;
 
     private ReadHandler readHandler;
+    private WriteHandler writeHandler;
     private boolean closed = false;
 
     public Client(String host, int port) {
@@ -30,6 +31,13 @@ public class Client {
         socket = new Socket(host,port);
         input = new DataInputStream(socket.getInputStream());
         output =  new DataOutputStream(socket.getOutputStream());
+        readHandler = new ReadHandler(input,this);
+        writeHandler = new WriteHandler(output,this);
+        Thread readThread = new Thread(readHandler,"readHandler");
+        Thread writeThread =new Thread(writeHandler,"writeHandler");
+        readThread.start();
+        writeThread.start();
+
     }
 
     public void close() {
