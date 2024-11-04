@@ -36,7 +36,6 @@ public class SessionManager {
                 log(e);
             }
         });
-        sessions.clear();
     }
     public synchronized List<String> getAllUserName() {
         List<String> userNames =  new ArrayList<>();
